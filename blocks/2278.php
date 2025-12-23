@@ -2,11 +2,23 @@
 <!--                 Side By Side                 -->
 <!-- ============================================ -->
 
+<?php
+$sub_header = get_field("sub_header");
+$header = get_field("header");
+
+$header_1 = get_field("header_1");
+$text_1 = get_field("text_1");
+$cta_1 = get_field("cta_1");
+
+$header_2 = get_field("header_2");
+$text_2 = get_field("text_2");
+$cta_2 = get_field("cta_2");
+?>
+
 <section id="RPsbs-2278">
 	<div class="cs-header">
-		<span class="cs-topper">Featured Service</span>
-		<h2 class="cs-title">We Have a Vision For The Future
-			Of Construction</h2>
+		<span class="cs-topper"><?= $sub_header ?></span>
+		<h2 class="cs-title"><?= $header ?></h2>
 	</div>
 	<div class="cs-container">
 		<!-- Left Image Section -->
@@ -17,35 +29,38 @@
 		</picture>
 		<!-- Right Content Section-->
 		<div class="cs-content">
-			<h3 class="cs-h3">Roofing Services</h3>
+			<h3 class="cs-h3"><?= $header_1 ?></h3>
 			<p class="cs-text">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Platea porttitor in venenatis enim molestie felis vitae nec. Tempor tempor aliquam mus nec. Sodales consectetur lectus quis nullam mauris, cursus massa faucibus. Quis magna nunc nulla eget. Etiam sit adipiscing felis sagittis, facilisi. Pretium sed.
+				<?= $text_1 ?>
 			</p>
 			<span class="cs-heading">Services Include:</span>
-			<ul class="cs-ul">
-				<li class="cs-li">
-					Roof inspections and maintenance
-				</li>
-				<li class="cs-li">
-					Leak detection and repairs
-				</li>
-				<li class="cs-li">
-					Roof replacement and installation
-				</li>
-				<li class="cs-li">
-					Energy-efficient roofing solutions
-				</li>
-			</ul>
-			<a class="cs-button-solid" href="">Learn More</a>
+
+			<?php if (have_rows('bullets_1')): ?>
+				<ul class="cs-ul">
+					<?php while (have_rows('bullets_1')): the_row();
+						$bullet = get_sub_field('bullet'); ?>
+						<li class="cs-li">
+							<?= $bullet ?>
+						</li>
+					<?php endwhile; ?>
+				</ul>
+			<?php endif; ?>
+
+			<?php if ($cta_1):
+				$link_url = $cta_1['url'];
+				$link_title = $cta_1['title'];
+				$link_target = $cta_1['target'] ? $cta_1['target'] : '_self';
+			?>
+				<a class="cs-button-solid" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>" aria-label="<?= esc_html($link_title); ?>"><?= esc_html($link_title); ?></a>
+			<?php endif; ?>
 		</div>
 	</div>
 </section>
 
-
 <!-- ============================================ -->
 <!--             Side By Side Reverse             -->
 <!-- ============================================ -->
-
+ 
 <section id="RPsbsr-2278">
 	<div class="cs-container">
 		<!-- Left Image Section -->
@@ -56,26 +71,30 @@
 		</picture>
 		<!-- Right Content Section-->
 		<div class="cs-content">
-			<h3 class="cs-h3">Stucco Services</h3>
+			<h3 class="cs-h3"><?= $header_2 ?></h3>
 			<p class="cs-text">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Platea porttitor in venenatis enim molestie felis vitae nec. Tempor tempor aliquam mus nec. Sodales consectetur lectus quis nullam mauris, cursus massa faucibus. Quis magna nunc nulla eget
+				<?= $text_2 ?>
 			</p>
+
 			<span class="cs-heading">Services Include:</span>
-			<ul class="cs-ul">
-				<li class="cs-li">
-					Stucco application for new constructions
-				</li>
-				<li class="cs-li">
-					Stucco repairs and crack sealing
-				</li>
-				<li class="cs-li">
-					Decorative finishes and textures
-				</li>
-				<li class="cs-li">
-					Weather-resistant and insulated stucco solutions
-				</li>
-			</ul>
-			<a class="cs-button-solid" aria-label="learn more about our programs" href="">Learn More</a>
+			<?php if (have_rows('bullets_2')): ?>
+				<ul class="cs-ul">
+					<?php while (have_rows('bullets_2')): the_row();
+						$bullet = get_sub_field('bullet'); ?>
+						<li class="cs-li">
+							<?= $bullet ?>
+						</li>
+					<?php endwhile; ?>
+				</ul>
+			<?php endif; ?>
+
+			<?php if ($cta_2):
+				$link_url = $cta_2['url'];
+				$link_title = $cta_2['title'];
+				$link_target = $cta_2['target'] ? $cta_2['target'] : '_self';
+			?>
+				<a class="cs-button-solid" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>" aria-label="<?= esc_html($link_title); ?>"><?= esc_html($link_title); ?></a>
+			<?php endif; ?>
 		</div>
 	</div>
 </section>

@@ -6,6 +6,9 @@
 $header = get_field("header");
 $text = get_field("text");
 $cta = get_field("cta");
+
+$desktop = get_field('desktop');
+$mobile = get_field('mobile');
 ?>
 
 <section id="hero-288">
@@ -22,28 +25,33 @@ $cta = get_field("cta");
 				<a class="cs-button-solid" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>"><?= esc_html($link_title); ?></a>
 			<?php endif; ?>
 
-			<ul class="cs-stats-group">
-				<li class="cs-item">
-					<span class="cs-number">50+</span>
-					<span class="cs-desc">Licensed Attorneys</span>
-				</li>
-				<li class="cs-item">
-					<span class="cs-number">850+</span>
-					<span class="cs-desc">Global Partners</span>
-				</li>
-				<li class="cs-item">
-					<span class="cs-number">98%</span>
-					<span class="cs-desc">Successful Judgements</span>
-				</li>
-			</ul>
+			<?php if (have_rows('stats')): ?>
+				<ul class="cs-stats-group">
+					<?php while (have_rows('stats')): the_row();
+						$figure = get_sub_field('figure');
+						$description = get_sub_field('description');
+					?>
+						<li class="cs-item">
+							<span class="cs-number"><?= $figure ?></span>
+							<span class="cs-desc"><?= $description ?></span>
+						</li>
+					<?php endwhile; ?>
+				</ul>
+			<?php endif; ?>
 		</div>
+
 		<!--Hero Image-->
 		<picture class="cs-picture">
-			<source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Hero/lawyer-m.jpg">
-			<source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Hero/lawyer-t.jpg">
-			<source media="(min-width: 1024px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Hero/lawyer.jpg">
-			<img aria-hidden="true" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Hero/lawyer.jpg" alt="lawyer" width="630" height="814">
+			<?php if (!empty($mobile)): ?>
+				<source media="(max-width: 600px)" srcset="<?= esc_url($mobile['url']); ?>">
+			<?php endif; ?>
+			<!-- <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Hero/lawyer-t.jpg"> -->
+			<?php if (!empty($desktop)): ?>
+				<source media="(min-width: 1024px)" srcset="<?= esc_url($desktop['url']); ?>">
+				<img aria-hidden="true" decoding="async" src="<?= esc_url($desktop['url']); ?>" alt="<?= esc_attr($desktop['alt']); ?>" width="630" height="814">
+			<?php endif; ?>
 		</picture>
+
 		<!--Green Waves-->
 		<picture class="cs-waves">
 			<source media="(min-width: 1024px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Hero/waves.svg">

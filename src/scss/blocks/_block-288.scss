@@ -102,7 +102,7 @@
 			max-width: calc(522 / 16 * 1rem);
 			margin: 0;
 			/* 40px - 98px */
-			margin-top: clamp(2.5rem, calc(6.3vw + 1rem), 6.125rem);
+			margin-top: clamp(2.5rem, calc(6.3vw + 1rem), 4.125rem);
 			/* 40px - 48px */
 			margin-bottom: clamp(2.5rem, 10vw, 3rem);
 			padding: 0;
@@ -139,7 +139,7 @@
 			max-width: calc(585 / 16 * 1rem);
 			/* 380px - 453px */
 			height: clamp(23.75rem, 59vw, 28.3215rem);
-			border-radius: calc(16 / 16 * 1rem);
+			/*border-radius: calc(16 / 16 * 1rem);*/
 			/* clips the img tag corners */
 			overflow: hidden;
 			display: block;
