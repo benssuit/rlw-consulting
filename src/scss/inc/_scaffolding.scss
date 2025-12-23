@@ -1,0 +1,66 @@
+// Baseline Styles (Scaffolding)
+// ------------------------------------------------------ /
+
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100%;
+	font-size: 1rem;
+	color: $black;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	a {
+		color: $black;
+		text-decoration: none;
+		display: inline-block;
+
+		&:hover {
+			color: $blue;
+			text-decoration: none;
+		}
+
+		&.active {
+			color: $blue;
+			text-decoration: underline;
+		}
+
+		&.item-link {
+			border: none;
+		}
+
+		object {
+			pointer-events: none;
+		}
+	}
+
+	p a,
+	span a {
+		padding-bottom: 0;
+	}
+
+	img {
+		//max-width: 100%;
+		height: auto;
+	}
+}
+
+ol,
+ul {
+	padding: 0;
+
+	&.blank {
+		list-style: none;
+
+		li {
+			margin-bottom: 10px;
+		}
+	}
+}

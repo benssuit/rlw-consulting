@@ -1,0 +1,44 @@
+{
+	"name": "rlw-consulting",
+	"version": "1.0.0",
+	"description": "",
+	"author": "Reify Creative",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"scripts": {
+		"css:lint": "stylelint scss/*.scss --custom-syntax postcss-scss",
+		"css:scss": "sass --no-source-map --style=compressed scss/main.scss ../assets/css/main.css",
+		"css:scss-editor": "sass --no-source-map --style=compressed scss/editor-style.scss ../assets/css/editor-style.css",
+		"css:autoprefixer": "postcss --no-map -u autoprefixer -r ../assets/css/*.css",
+		"build:css": "npm run css:lint && npm run css:scss && npm run css:scss-editor && npm run css:autoprefixer",
+		"build:js": "webpack --mode=production",
+		"build:images": "imagemin images/**/* --out-dir=../assets/images",
+		"build": "run-p build:*",
+		"quick": "run-p build:js build:css"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.28.5",
+		"@babel/preset-env": "^7.28.5",
+		"autoprefixer": "^10.4.23",
+		"babel-loader": "^10.0.0",
+		"eslint": "^9.39.2",
+		"eslint-webpack-plugin": "^5.0.2",
+		"imagemin-cli": "^8.0.0",
+		"npm-run-all": "^4.1.5",
+		"onchange": "^7.1.0",
+		"postcss-cli": "^11.0.1",
+		"postcss-scss": "^4.0.9",
+		"sass": "1.97.1",
+		"stylelint": "^16.26.1",
+		"webpack": "^5.104.1",
+		"webpack-cli": "^6.0.1"
+	},
+	"dependencies": {
+		"@popperjs/core": "^2.11.8",
+		"bootstrap": "^5.3.8",
+		"gsap": "^3.14.2"
+	}
+}
