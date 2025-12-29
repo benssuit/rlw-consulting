@@ -10,7 +10,6 @@ $cta = get_field("cta");
 $desktop = get_field('desktop');
 $mobile = get_field('mobile');
 ?>
-
 <section id="hero-288">
 	<div class="cs-container">
 		<div class="cs-content">

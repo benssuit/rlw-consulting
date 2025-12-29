@@ -4,7 +4,6 @@ export default class Block1666 {
 	}
 
 	init() {
-
 		const faqItems = Array.from(document.querySelectorAll(".cs-faq-item"));
 		for (const item of faqItems) {
 			const onClick = () => {

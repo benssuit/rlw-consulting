@@ -3,7 +3,7 @@ $the_title = get_the_title();
 $the_description = get_the_excerpt();
 
 if (is_yoast_active()) {
-	//$the_title = get_post_meta($post->ID, '_yoast_wpseo_title', true);
+	$the_title = get_post_meta($post->ID, '_yoast_wpseo_title', true);
 	$the_description = get_post_meta($post->ID, '_yoast_wpseo_metadesc', true);
 }
 ?>
