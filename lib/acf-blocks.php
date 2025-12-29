@@ -46,6 +46,17 @@ function register_acf_block_types()
 		'keywords'          => array('Component', 'Codestitch', '1666')
 	));
 
+	// 1718 - Subscribe
+	acf_register_block_type(array(
+		'name'              => 'block-1718',
+		'title'             => __('Block - 1718'),
+		'description'       => __('Codestitch 1718'),
+		'render_template'   => 'blocks/1718.php',
+		'category'          => 'layout',
+		'icon'              => 'list-view',
+		'keywords'          => array('Component', 'Codestitch', '1718')
+	));
+
 	// 1896 - Logos
 	acf_register_block_type(array(
 		'name'              => 'block-1896',
