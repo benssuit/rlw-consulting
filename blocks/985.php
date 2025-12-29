@@ -2,14 +2,25 @@
 <!--                    Blog                      -->
 <!-- ============================================ -->
 
+<?php
+$header = get_field("header");
+$sub_header = get_field("sub_header");
+$cta = get_field("cta");
+?>
 <section id="blog-985">
 	<div class="cs-container">
 		<div class="cs-content">
 			<div class="cs-flex">
-				<span class="cs-topper">News & Articles</span>
-				<h2 class="cs-title">Directly from The Latest News and Articles</h2>
+				<span class="cs-topper"><?= $sub_header ?></span>
+				<h2 class="cs-title"><?= $header ?></h2>
 			</div>
-			<a href="" class="cs-button-solid">View All</a>
+			<?php if ($cta):
+				$link_url = $cta['url'];
+				$link_title = $cta['title'];
+				$link_target = $cta['target'] ? $cta['target'] : '_self';
+			?>
+				<a class="cs-button-solid" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>"><?= esc_html($link_title); ?></a>
+			<?php endif; ?>
 		</div>
 		<ul class="cs-card-group">
 			<li class="cs-item">

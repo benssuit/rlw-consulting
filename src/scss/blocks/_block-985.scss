@@ -131,7 +131,7 @@
 			width: 100%;
 			height: calc(480 / 16 * 1rem);
 			/* removed at tablet */
-			aspect-ratio: (328/480);
+			aspect-ratio: calc(328/480);
 			/* clips img tag from overflowing it on hover */
 			overflow: hidden;
 			display: block;
