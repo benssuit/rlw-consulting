@@ -1,7 +1,9 @@
+import Block1666 from "../modules/block1666";
 import Header from "../modules/header";
 
 export default {
 	init() {
+		new Block1666();
 		new Header();
 	},
 	finalize() {
