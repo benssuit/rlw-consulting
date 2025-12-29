@@ -9,12 +9,13 @@ $header = get_field("header");
 $header_1 = get_field("header_1");
 $text_1 = get_field("text_1");
 $cta_1 = get_field("cta_1");
+$image_1 = get_field('image_1');
 
 $header_2 = get_field("header_2");
 $text_2 = get_field("text_2");
 $cta_2 = get_field("cta_2");
+$image_2 = get_field('image_2');
 ?>
-
 <section id="RPsbs-2278">
 	<div class="cs-header">
 		<span class="cs-topper"><?= $sub_header ?></span>
@@ -22,11 +23,12 @@ $cta_2 = get_field("cta_2");
 	</div>
 	<div class="cs-container">
 		<!-- Left Image Section -->
-		<picture class="cs-picture">
-			<source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/construction7.jpg">
-			<source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/construction7.jpg">
-			<img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/construction7.jpg" alt="construction" width="500" height="552" aria-hidden="true">
-		</picture>
+		<?php if (!empty($image_1)): ?>
+			<picture class="cs-picture">
+				<img loading="lazy" decoding="async" src="<?= esc_url($image_1['url']); ?>" alt="<?= esc_attr($image_1['alt']); ?>" width="500" aria-hidden="true">
+			</picture>
+		<?php endif; ?>
+
 		<!-- Right Content Section-->
 		<div class="cs-content">
 			<h3 class="cs-h3"><?= $header_1 ?></h3>
@@ -60,15 +62,15 @@ $cta_2 = get_field("cta_2");
 <!-- ============================================ -->
 <!--             Side By Side Reverse             -->
 <!-- ============================================ -->
- 
+
 <section id="RPsbsr-2278">
 	<div class="cs-container">
 		<!-- Left Image Section -->
-		<picture class="cs-picture">
-			<source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/construction8.jpg">
-			<source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/construction8.jpg">
-			<img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/construction8.jpg" alt="construction" width="500" height="552" aria-hidden="true">
-		</picture>
+		<?php if (!empty($image_2)): ?>
+			<picture class="cs-picture">
+				<img loading="lazy" decoding="async" src="<?= esc_url($image_2['url']); ?>" alt="<?= esc_attr($image_2['alt']); ?>" width="500" aria-hidden="true">
+			</picture>
+		<?php endif; ?>
 		<!-- Right Content Section-->
 		<div class="cs-content">
 			<h3 class="cs-h3"><?= $header_2 ?></h3>
